@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Counseling Chatbot</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link id="stylesheet" rel="stylesheet" href="CSS/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="left-container">
+        <div class="image-container"></div>
+        <div class="dynamic-heading">AI CAREER COUNSELLOR</div>
+    </div>
+
+    <div class="right-container">
+        <div class="chat-box" id="chatBox"></div>
+        <div class="input-box">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button id="sendButton"><i class="fa-solid fa-circle-arrow-right"></i></button>
+        </div>
+    </div>
+</div>
+
+<!-- Waiting Section -->
+ <div id="waitingMessage" style="display: none; align-content: center;">
+
+ </div>
+
+ <!-- Feedback Section -->
+ <div id="feedbackInput" style="display: none;">
+    <textarea id="feedbackMessage" placeholder="Enter your feedback"></textarea>
+    <button id="sendFeedbackButton">Submit Feedback</button>
+</div>
+
+<!-- Profile Boxes Section -->
+<div id="profileContainer" class="profile-container" style="display: none;">
+    <div id="profiles" class="profiles"></div>
+</div>
+
+<!-- For Fresher -->
+<div id="roadmapContainer1" style="display: none;">
+      
+    <div class="container">
+        <div class="upside">
+            <div>
+                <div class="skillouter">
+                    <h4>Zone2</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Self</span>
+                        <SPAN style="color: blue;">Assessment</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"Understanding yourself is the first step to unlocking your potential. Reflect, learn, and take charge of your journey toward greatness."</p>
+                </div>
+                <div class="box1">
+                    <div class="data" id="Fz2a"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone3</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Hard</span>
+                        <SPAN style="color: blue;">Skills</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"Mastering hard skills is like building a toolbox; each tool equips you to tackle complex challenges and craft a successful future."
+                    </p>
+                </div>
+                <div class="box2">
+                    <div class="data" id="Fz3a"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone4</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Soft</span>
+                        <SPAN style="color: blue;">Skills</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"Soft skills foster connections. Cultivate empathy and communication to unlock new opportunities."
+                    </p>
+                </div>
+                <div class="box12">
+                    <div class="data" id="Fz4a"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone5</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Job Search</span> <SPAN
+                            style="color: blue;">Strategy</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"A strategic job search is like navigating a maze; every twist and turn brings you closer to the opportunity that awaits you."</p>
+                </div>
+                <div class="box22">
+                    <div class="data" id="Fz5a"></div>
+                </div>
+            </div>
+        </div>
+        <div>
+<div class="middle">
+        <div>
+            <div class="skillouter">
+                <h4>Zone1</h4>
+                <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Journey</span>
+                    <SPAN style="color: blue;">Begins</SPAN></h4>
+                <p style="font-size: 14px; margin-top:0px;">
+                    "Every great journey begins with a single step. Embrace challenges, as they shape your path to success."</p>
+            </div>
+            <div class="box1">
+                <div class="data" style="   background-color:rgb(2, 91, 2);" id="Fz1"></div>
+            </div>
+        </div>
+        <div class="left">
+            <p>"Empowering your career journey with tailored insights and actionable guidance because your future deserves expert direction. Discover your potential with Career Counseling by GetHire.ai."</p>
+        </div>
+    </div>
+</div>
+        <div class="downside">
+            <div>
+                <div class="skillouter">
+                    <h4>Zone2</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Networking</span> <SPAN
+                            style="color: blue;">& Connections</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">
+                        "Networking is about building relationships, not just exchanging contacts. Every connection can transform your career."</p>
+                </div>
+                <div class="boxD1">
+                    <div class="data1" id="Fz2b"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone3</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Resume &</span> <SPAN style="color: blue;">Personal Building</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"Your resume is more than just a document; itâ€™s your personal brand. Craft it with care, and let it tell the story of your unique journey."</p>
+                </div>
+                <div class="boxD2">
+                    <div class="data1" id="Fz3b"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone4</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Workshops &</span> <SPAN style="color: blue;"> Seminars</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">
+                        "Join expert-led workshops and seminars to learn the latest trends and best practices, enhancing your professional knowledge."</p>
+                </div>
+                <div class="boxD3">
+                    <div class="data1" id="Fz4b"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone5</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Interview</span> <SPAN style="color: blue;">Preparations</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"Success in an interview comes from preparation and authenticity. Be prepared, stay true to yourself, and let your passion show."</p>
+                </div>
+                <div class="boxD4">
+                    <div class="data1" id="Fz5b"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- For Experienced -->
+<div id="roadmapContainer2" style="display: none;">
+      
+    <div class="container">
+        <div class="upside">
+            <div>
+                <div class="skillouter">
+                    <h4>Zone2</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Industry &</span>
+                        <SPAN style="color: blue;">Market Trends</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"Stay ahead of the curve; adapt to the evolving landscape of your industry to unlock new opportunities."</p>
+                </div>
+                <div class="box1">
+                    <div class="data" id="Ez2a"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone3</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Advanced Skills</span>
+                        <SPAN style="color: blue;">Development</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"Mastery of advanced skills is the key that opens doors to leadership and innovation in your field."
+                    </p>
+                </div>
+                <div class="box2">
+                    <div class="data" id="Ez3a"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone4</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Network </span>
+                        <SPAN style="color: blue;">Building</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">
+                        "Build authentic connections to enhance your career; your network significantly influences your success."
+                    </p>
+                </div>
+                <div class="box12">
+                    <div class="data" id="Ez4a"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone5</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Branding and </span> <SPAN
+                            style="color: blue;">Personal Marketing</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"Your personal brand is your promise to the world; make it authentic, impactful, and memorable."</p>
+                </div>
+                <div class="box22">
+                    <div class="data" id="Ez5a"></div>
+                </div>
+            </div>
+        </div>
+        <div>
+<div class="middle">
+        <div>
+            <div class="skillouter">
+                <h4>Zone1</h4>
+                <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Journey</span>
+                    <SPAN style="color: blue;">Begins</SPAN></h4>
+                <p style="font-size: 14px; margin-top:0px;">
+                    "Every great journey begins with a single step. Embrace challenges, as they shape your path to success."</p>
+            </div>
+            <div class="box1">
+                <div class="data" style="   background-color:rgb(2, 91, 2);" id="Ez1"></div>
+            </div>
+        </div>
+        <div class="left">
+            <p>"Empowering your career journey with tailored insights and actionable guidance because your future deserves expert direction. Discover your potential with Career Counseling by GetHire.ai."</p>
+        </div>
+    </div>
+</div>
+        <div class="downside">
+            <div>
+                <div class="skillouter">
+                    <h4>Zone2</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Job Search</span> <SPAN
+                            style="color: blue;">Strategy</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"A strategic job search is a blend of research and intuition; align your passions with market needs for success."
+                        </p>
+                </div>
+                <div class="boxD1">
+                    <div class="data1" id="Ez2b"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone3</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Negotitation</span> <SPAN style="color: blue;">Skills</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"Negotiation is not just about compromise; it's about creating win-win scenarios that foster long-term relationships."</p>
+                </div>
+                <div class="boxD2">
+                    <div class="data1" id="Ez3b"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone4</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Career</span> <SPAN style="color: blue;"> Advancements</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">
+                        "Invest in your growth; every step you take today shapes the leader youâ€™ll become tomorrow."</p>
+                </div>
+                <div class="boxD3">
+                    <div class="data1" id="Ez4b"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="skillouter">
+                    <h4>Zone5</h4>
+                    <h4 style="margin-top: 0; margin-bottom:2px;"><span style="color:rgb(2, 91, 2);">Work Life</span> <SPAN style="color: blue;">Balance</SPAN></h4>
+                    <p style="font-size: 14px; margin-top:0px;">"Achieving work-life integration means aligning your professional goals with personal values for holistic success."</p>
+                </div>
+                <div class="boxD4">
+                    <div class="data1" id="Ez5b"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Button Container with Back to Chat centered -->
+<div class="button-container" id="btnDiv" style="display: none;">
+    <button id="backToChatBtn" class="btn chat-btn">
+        Back to Profiles
+    </button>
+</div>
+
+<!-- Download Button fixed at bottom-right -->
+<button id="downloadBtn" class="btn download-btn" style="display: none;">
+    Download Roadmap
+</button>
+
+
+<script>
+    let questions = [{
+        question: "Hi, I'm your AI career counselor, here to help you explore and plan your career! Let's get started by understanding a bit more about you. Are you Experienced or a Fresher?", 
+        key: "profileClarity"
+    }];
+    let questionFlow = {
+        "profileClarity": (answer) => {
+            if (answer.toLowerCase() === 'experienced') {
+                return [
+                    {
+                        question: "What is your primary career focus at the moment? (HINT:Skills Development, Exploring, Others)",
+                        key: "careerFocus",
+                        options: ["Exploring options", "Skills development", "Career advancements", "Others (specify)"],
+                        hint: "Specify whether you're exploring new career paths, developing skills, or advancing in your current role.",
+                        prompt: (userResponse) => 
+                            `The user is experienced and their primary career focus is ${userResponse}. Suggest potential career fields that align with this focus.`
+                    },
+                    {
+                        question: "What kind of work environment do you prefer? (HINT:Collaborative, Hybrid, Others)",
+                        key: "workEnvironment",
+                        options: ["Collaborative", "Innovative", "Flexible", "Structured and Organized", "Others (specify)"],
+                        hint: "Do you thrive in a team, need flexibility, or prefer structured environments?",
+                        prompt: (userResponse) => 
+                            `The user seeks a work environment that is ${userResponse}. Suggest roles or organizations that align with such environments.`
+                    },
+                    {
+                        question: "What kind of organization do you prefer to work for? (HINT:MNC, Government, Others)",
+                        key: "organizationType",
+                        options: ["Start-up", "MNC", "Government", "Public Sector", "Others (specify)"],
+                        hint: "Would you prefer working in a startup, an MNC, or the public sector?",
+                        prompt: (userResponse) => 
+                            `The user prefers to work in an organization type that is ${userResponse}. Recommend career fields and job roles in such organizations.`
+                    },
+                    {
+                        question: "What is your preferred work location? (HINT:Remote, Freelancing, Others)",
+                        key: "workLocation",
+                        options: ["Remote", "Hybrid", "On-site", "Close to home", "Others (specify)"],
+                        hint: "Do you prefer remote work, a hybrid model, or being on-site?",
+                        prompt: (userResponse) => 
+                            `The user prefers to work in a location that is ${userResponse}. Recommend roles or fields offering such flexibility.`
+                    },
+                    {
+                        question: "How much experience do you have in your current field?",
+                        key: "experienceLevel",
+                        options: ["Less than 1 year", "1-3 years", "3-5 years", "More than 5 years"],
+                        hint: "Understanding your experience level will help suggest relevant career paths.",
+                        prompt: (userResponse) => 
+                            `The user has ${userResponse} of experience. Recommend career fields or roles suitable for their experience level.`
+                    },
+                    {
+                        question: "What industry or field do you currently work in? (HINT:Engineering, Medicine, Others)",
+                        key: "currentIndustry",
+                        options: ["Engineering", "Medicine", "Finance", "Technology", "Management", "Others (specify)"],
+                        hint: "Mention the industry you have expertise in. This will help suggest relevant career opportunities.",
+                        prompt: (userResponse) => 
+                            `The user currently works in the ${userResponse} industry. Suggest career progression or transition opportunities within or beyond this industry.`
+                    },
+                    {
+                        question: "What technical or professional skills do you excel at? (HINT:Data analysis, Marketing, Others)",
+                        key: "technicalSkills",
+                        options: ["Project Management", "Software Development", "Data Analysis", "Marketing", "Others (specify)"],
+                        hint: "List the skills you're proficient in. These can be both technical and soft skills.",
+                        prompt: (userResponse) => 
+                            `The user excels at ${userResponse}. Recommend career fields or roles that highly value these skills.`
+                    },
+                    {
+                        question: "What are your personal interests and hobbies? (HINT:Reading, Dance, Others)",
+                        key: "personalInterests",
+                        options: ["Reading", "Technology", "Sports", "Art and Design", "Others (specify)"],
+                        hint: "List any hobbies or personal interests. These can often align with career fields.",
+                        prompt: (userResponse) => 
+                           `The user has personal interests in ${userResponse}. Suggest career fields where these interests can be aligned.`
+                    },
+                    {
+                        question: "What specific career field are you most interested in pursuing? (HINT:Product Management, Others)",
+                        key: "careerField",
+                        options: ["Software Development", "Data Science", "Product Management", "Healthcare Management", "Others (specify)"],
+                        hint: "Identify which career field excites you based on your skills and interests.",
+                        prompt: (userResponse) => 
+                            `The user is interested in pursuing a career in ${userResponse}. Suggest specific job roles and career paths in this field.`
+                    },
+                    {
+                        question: "What additional skills or knowledge would you like to gain? (HINT:Leadership, AI, Others)",
+                        key: "skillDevelopment",
+                        options: ["Leadership", "Artificial Intelligence", "Data Analytics", "Public Speaking", "Others (specify)"],
+                        hint: "Indicate any areas where you want to grow. This will help suggest upskilling opportunities.",
+                        prompt: (userResponse) => 
+                            `The user wants to gain skills in ${userResponse}. Recommend relevant courses or certifications to develop these skills.`
+                    }
+                ];
+            } else {
+                return [
+                    {
+                        question: "What educational qualifications do you have? (HINT:High School, Diploma, Others)",
+                        key: "educationalQualifications",
+                        options: ["High School", "Bachelor's", "Master's", "Doctorate", "Others (specify)"],
+                        hint: "List your highest level of completed education.",
+                        prompt: (userResponse) => 
+                            `The user has completed ${userResponse}. Suggest career fields based on their educational qualifications`
+                    },
+                    {
+                        question: "What's your field of study? (HINT:Business, Arts, Others)",
+                        key: "fieldOfStudy",
+                        options: ["Engineering", "Science", "Business", "Arts", "Medicine", "Others (specify)"],
+                        hint: "Mention the field or major you studied. This helps suggest relevant career fields.",
+                        prompt: (userResponse) => 
+                            `The user studied ${userResponse}. Recommend career fields aligned with this field of study.`
+                    },
+                    {
+                        question: "What are your technical or soft skills? (HINT:Coding, Adaptable, Others)",
+                        key: "skills",
+                        options: ["Communication", "Problem-solving", "Leadership", "Coding", "Others (specify)"],
+                        hint: "List your strengths in terms of technical and soft skills.",
+                        prompt: (userResponse) => 
+                            `The user has skills in ${userResponse}. Recommend career fields where these skills would be valuable.`
+                    },
+                    {
+                        question: "What hobbies or personal interests do you have? (HINT:Reading, Sports, Others)",
+                        key: "personalInterests",
+                        options: ["Reading", "Technology", "Sports", "Design", "Others (specify)"],
+                        hint: "Hobbies can sometimes guide career choices. List the activities you enjoy.",
+                        prompt: (userResponse) => 
+                            `The user enjoys ${userResponse} as personal interests. Suggest career fields that align with these interests.`
+                    },
+                    {
+                        question: "Are there any industries or fields you're particularly interested in? (HINT:Technology, Law, Others)",
+                        key: "industryInterest",
+                        options: ["Technology", "Finance", "Healthcare", "Marketing", "Others (specify)"],
+                        hint: "List industries you're curious about or want to enter.",
+                        prompt: (userResponse) => 
+                            `The user is interested in the ${userResponse} industry. Suggest entry-level opportunities or training paths in this field.`
+                    },
+                    {
+                        question: "Are you interested in exploring new career fields or job roles? (Yes, No, Not Sure Yet)",
+                        key: "careerFieldInterest",
+                        options: ["Yes", "No", "Not sure yet"],
+                        hint: "Are you open to changing career paths or exploring new roles?",
+                        prompt: (userResponse) => 
+                           `The user is ${userResponse} interested in exploring new career fields. Suggest new career fields or training opportunities based on their preferences.`
+                    },
+                    {
+                        question: "If yes, which specific career fields or job roles are you curious about? (HINT:Data Science, Marketing, Others)",
+                        key: "careerFieldSuggestion",
+                        options: ["Software Development", "Data Science", "Marketing", "Product Design", "Others (specify)"],
+                        hint: "List any new career fields or roles you'd like to explore.",
+                        prompt: (userResponse) => 
+                           `The user is curious about ${userResponse}. Suggest how they can transition into or explore these fields further.`
+                    },
+                    {
+                        question: "What kind of learning style works best for you? (HINT:Self-paced, Hands-on, Others)",
+                        key: "learningStyle",
+                        options: ["Self-paced online courses", "Hands-on workshops", "One-on-one mentorship", "Group learning", "Others (specify)"],
+                        hint: "Indicate how you prefer to learn. This will help in suggesting relevant courses or training programs.",
+                        prompt: (userResponse) => 
+                            `The user prefers a ${userResponse} learning style. Recommend courses or programs that match this preference.`
+                    }
+                ];
+            }
+        }
+    };
+let currentQuestionIndex = 0;
+let userAnswers = {};
+
+const chatBox = document.getElementById('chatBox');
+const userInput = document.getElementById('userInput');
+const sendButton = document.getElementById('sendButton');
+const roadmapcontainer1 = document.getElementById('roadmapContainer1');
+const roadmapcontainer2 = document.getElementById('roadmapContainer2');
+const roadmapContent = document.getElementById('roadmapContent');
+const profileContainer = document.getElementById('profileContainer');
+const profilesDiv = document.getElementById('profiles');
+const waitDiv = document.getElementById('waitingMessage');
+const chatContainer = document.querySelector('.container');
+
+function addChatBubble(text, isBot) {
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble ' + (isBot ? 'bot-bubble' : 'user-bubble');
+
+    const icon = document.createElement('img');
+    icon.className = 'icon';
+    icon.src = isBot ? 'https://cdn-icons-png.flaticon.com/128/17115/17115952.png' : 'https://cdn-icons-png.flaticon.com/128/560/560277.png';
+    bubble.appendChild(icon);
+
+    const message = document.createElement('div');
+    message.textContent = text;
+    bubble.appendChild(message);
+
+    chatBox.appendChild(bubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+sendButton.addEventListener('click', () => {
+    const userText = userInput.value.trim();
+    if (userText !== "") {
+        addChatBubble(userText, false);
+        handleAnswer(userText);  // Process the user's answer
+        userInput.value = "";  // Clear input field
+    }
+});
+
+// New event listener for Enter key
+userInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        sendButton.click();  // Simulate a click on the send button
+    }
+});
+
+function askNextQuestion() {
+    if (currentQuestionIndex < questions.length) {
+        const currentQuestion = questions[currentQuestionIndex]?.question;
+        if (currentQuestion) {
+            addChatBubble(currentQuestion, true);  // Show the bot's question
+        }
+    } else {
+        submitToServer();  // Wait for the server submission to complete
+    }
+}
+
+// Sends the answers to the backend
+async function submitToServer() {
+    try {
+        waitDiv.textContent = 'Please wait...\nWe are shortlisting top profiles for you!';
+        waitDiv.style.display = 'flex';
+        chatContainer.style.display = 'none';
+        const response = await fetch('http://127.0.0.1:5000/get-career-recommendation', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ answers: userAnswers })
+        });
+        const data = await response.json();
+        showProfileOptions(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+
+// For parsing data into the roadmap
+function putRoadMapData(profileData) {
+    const choice = userAnswers['profileClarity'].toLowerCase();
+    if(choice == 'fresher') {
+        document.getElementById('Fz1').textContent = profileData['title'];
+        document.getElementById('Fz2a').textContent = profileData['Self Assessment'];
+        document.getElementById('Fz2b').textContent = profileData['Networking & Connections'];
+        document.getElementById('Fz3a').textContent = profileData['Hard Skills'];
+        document.getElementById('Fz3b').textContent = profileData['Resume & Personal Building'];
+        document.getElementById('Fz4a').textContent = profileData['Soft Skills'];
+        document.getElementById('Fz4b').textContent = profileData['Workshops & Seminars'];
+        document.getElementById('Fz5a').textContent = profileData['Job Search Strategy'];
+        document.getElementById('Fz5b').textContent = profileData['Interview Preparations'];
+    } else {
+
+        document.getElementById('Ez1').textContent = profileData['title'];
+        document.getElementById('Ez2a').textContent = profileData['Industry & Market Trends'];
+        document.getElementById('Ez2b').textContent = profileData['Job Search Strategy'];
+        document.getElementById('Ez3a').textContent = profileData['Advanced Skills Development'];
+        document.getElementById('Ez3b').textContent = profileData['Negotiation Skills'];
+        document.getElementById('Ez4a').textContent = profileData['Network Building'];
+        document.getElementById('Ez4b').textContent = profileData['Career Advancements'];
+        document.getElementById('Ez5a').textContent = profileData['Branding & Personal Marketing'];
+        document.getElementById('Ez5b').textContent = profileData['Work Life Balance'];
+    }
+}
+
+// For fetching roadmap data
+async function getRoadMapData(profileTitle) {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/get-roadmap', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ profile: profileTitle })
+        });
+        
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        waitDiv.style.display = 'none'; // Simulates waiting screen
+        putRoadMapData(data); // Feeds data to the roadmap container
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Displayes shortlisted profiles
+function showProfileOptions(profileData) {
+    waitDiv.style.display = 'none';
+    const profileContainer = document.getElementById('profileContainer');
+    const profilesDiv = document.getElementById('profiles');
+
+    // Clear any previous content
+    profilesDiv.innerHTML = '';
+
+    const careerOptionsArray = Object.values(profileData);
+
+    // Create profile boxes dynamically
+    careerOptionsArray.forEach((careerData) => {
+        const profileBox = document.createElement('div');
+        profileBox.className = 'profile-box';
+
+        const profileTitle = document.createElement('h3');
+        profileTitle.textContent = `${careerData.title}`;
+
+        const profileWhyFit = document.createElement('p');
+        profileWhyFit.textContent = `${careerData.why_fit}`;
+
+        const profileCourses = document.createElement('p');
+        profileCourses.textContent = `${careerData.courses}`;
+
+        const profileField = document.createElement('p');
+        profileField.textContent = careerData.internship ? `${careerData.internship}` : `${careerData.skills}`;
+
+        const profileNetworking = document.createElement('p');
+        profileNetworking.textContent = `${careerData.networking}`;
+
+        profileBox.appendChild(profileTitle);
+        profileBox.appendChild(profileWhyFit);
+        profileBox.appendChild(profileCourses);
+        profileBox.appendChild(profileField);
+        profileBox.appendChild(profileNetworking);
+        profilesDiv.appendChild(profileBox);
+
+        // Add click event to each profile box
+        profileBox.addEventListener('click', async () => {
+            // alert(`You selected: ${careerData.title}\nPlease wait... we are generating a roadmap for you!`);
+            profileContainer.style.display = 'none';
+            waitDiv.textContent = 'Please wait...\nWe are generating a custom roadmap for you!';
+            waitDiv.style.display = 'flex';
+            await getRoadMapData(careerData.title);
+            showRoadmap();  // Proceed to the roadmap based on selection
+        });
+    });
+
+    // Hide the profile container and show profiles
+    profileContainer.style.display = 'flex';  // Show the profile options
+    document.querySelector('.container').style.display = 'none';  // Hide the chat container
+}
+
+// Introduce changes to this and include back button also
+function showRoadmap() {
+
+    var currentContainer;
+    // Handle for work experience profile
+    var expChoice = userAnswers['profileClarity'].toLowerCase();
+
+    // fresher and experienced roadmap 
+    if(expChoice == 'fresher') {
+        var roadmapContainer1 = document.getElementById('roadmapContainer1');
+        const stylesheet = document.getElementById('stylesheet');
+        stylesheet.setAttribute('href', 'CSS/style.fresher.css');
+        roadmapContainer1.style.display = 'block';
+        currentContainer = 'roadmapContainer1';
+    }
+    else if(expChoice == 'experienced') {
+        var roadmapContainer2 = document.getElementById('roadmapContainer2');
+        const stylesheet = document.getElementById('stylesheet');
+        stylesheet.setAttribute('href', 'CSS/style.experience.css');
+        roadmapContainer2.style.display = 'block';
+        currentContainer = 'roadmapContainer2';
+    }
+    else
+        console.log('Error! No valid experience!');
+
+    const bDiv = document.getElementById('btnDiv');
+    const dButton = document.getElementById('downloadBtn');
+    const backToChatBtn = document.getElementById('backToChatBtn');
+
+    // Toggle roadmap visibility
+    
+    bDiv.style.display = 'block';
+    dButton.style.display = 'flex';
+
+    // Add event listeners if they do not already exist
+    if (!dButton.hasAttribute('data-listener')) {
+        dButton.addEventListener('click', function () {
+
+            var roadmapElement = document.getElementById(currentContainer);
+            html2canvas(roadmapElement).then(function (canvas) {
+                var link = document.createElement('a');
+                link.download = 'roadmap.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        });
+        dButton.setAttribute('data-listener', 'true');
+    }
+
+    if (!backToChatBtn.hasAttribute('data-listener')) {
+        backToChatBtn.addEventListener('click', function () {
+
+            // Hide roadmap container
+            if(roadmapContainer1)
+                roadmapContainer1.style.display = 'none';
+            else
+                roadmapContainer2.style.display = 'none';
+
+            // Hide buttons
+            bDiv.style.display = 'none';
+            dButton.style.display = 'none';
+
+            // Change back to index CSS
+            const stylesheet = document.getElementById('stylesheet');
+            stylesheet.setAttribute('href', 'CSS/index.css');
+
+            // Show chat container again (including both left and right sections)
+            if (chatContainer) {
+                chatContainer.style.display = 'none'; 
+                profileContainer.style.display = 'flex';
+            }
+
+            // Show feedback input section
+            // askForFeedback(); //Handle this functionality later on...
+        });
+        backToChatBtn.setAttribute('data-listener', 'true');
+    }
+}
+
+function askForFeedback() {
+    // Show feedback input section
+    const feedbackInput = document.getElementById('feedbackInput');
+    feedbackInput.style.display = 'block'; // Ensure feedback input is visible
+    document.getElementById('feedbackMessage').focus(); // Focus on the feedback textarea
+}
+
+
+// Feedback submission event listener
+document.getElementById('sendFeedbackButton').addEventListener('click', () => {
+    const feedbackText = document.getElementById('feedbackMessage').value.trim();
+
+    if (feedbackText !== "") {
+        // Send feedback to the Flask backend
+        fetch('http://127.0.0.1:5000/store-feedback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: feedbackText })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Thank you for your feedback!");
+                document.getElementById('feedbackMessage').value = "";  // Clear feedback input
+                document.getElementById('feedbackInput').style.display = 'none';  // Hide feedback form
+            } else {
+                alert("Failed to submit feedback.");
+            }
+        })
+        .catch(error => {
+            console.error("Error submitting feedback:", error);
+            alert("An error occurred while submitting feedback.");
+        });
+    } else {
+        alert("Please enter feedback before submitting.");
+    }
+});
+
+
+function handleAnswer(userText) {
+    const currentQuestionKey = questions[currentQuestionIndex]?.key;
+    userAnswers[currentQuestionKey] = userText;  // Save the user's answer
+
+    // Handle conditional question generation based on the first answer
+    if (currentQuestionKey === "profileClarity") {
+        if (userText.toLowerCase() === 'experienced') {
+            questions = questions.concat(questionFlow.profileClarity('experienced'));  // Adds experienced questions
+        } else {
+            questions = questions.concat(questionFlow.profileClarity('fresher'));  // Adds fresher questions
+        }
+    }
+
+    currentQuestionIndex++;
+    askNextQuestion();
+}
+
+
+askNextQuestion();  // Start asking questions when the page loads 
+</script>
+</html>

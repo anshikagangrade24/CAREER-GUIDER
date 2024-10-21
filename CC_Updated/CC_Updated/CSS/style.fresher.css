@@ -1,0 +1,264 @@
+body {
+     padding-left: 0.1rem;
+    background-color: #f0f8ff;
+    margin: 15px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.left {
+    width: 30vw;
+    height: 7vw;
+     background-color: #7FB77E;
+    margin-left: 20%;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.left:hover {
+    transform: scale(1.05);
+}
+
+.first {
+    width: 20vw;
+    height: auto;
+    display: flex;
+    margin-top: 5px;
+}
+
+.skillouter,
+.skillouter1 {
+    width: 20vw;
+    height: auto;
+    margin: 0;
+    padding: 0;
+ 
+}
+
+.skillouter h4,
+.skillouter1 h4 {
+    margin-top: 0%;
+    margin-bottom: 2px;
+    color: #666;
+}
+
+.outer1 {
+    border: 1px solid #025b02;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    font-weight: bold;
+    background-color: #f5fff5;
+    transition: box-shadow 0.3s ease;
+}
+
+.outer1:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+ 
+
+.upside,
+.downside {
+    padding-left: 14%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+ .middle{
+    display: flex;
+    margin-bottom: 20px;
+    
+ }
+
+
+
+.box1,
+.box2,
+.box12,
+.box22 {
+    border: 1.5px solid #520202;
+    width: 15vw;
+    height: auto;
+    margin: 5px;
+    display: flex;
+    padding: 3px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #f4e1e1;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.box1:hover,
+.box2:hover,
+.box12:hover,
+.box22:hover {
+    transform: scale(1.05);
+    background-color: #ffe6e6;
+}
+
+.data,
+.data1 {
+    border: 1.5px solid #520202;
+    background-color: #520202;
+    color: white;
+    height: 35%;
+    width: 80%;
+    font-size: 13px;
+    margin: 5px;
+    padding: 7px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.data:hover,
+.data1:hover {
+    background-color: #ff3d3d;
+    transform: translateY(-2px);
+}
+
+.boxD1,
+.boxD2,
+.boxD3,
+.boxD4 {
+    border: 1.5px solid #520202;
+    width: 15vw;
+    height: auto;
+    margin: 5px;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #f4e1e1;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.boxD1:hover,
+.boxD2:hover,
+.boxD3:hover,
+.boxD4:hover {
+    transform: scale(1.05);
+    background-color: #ffe6e6;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#downloadBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#backToChatBtn {
+     padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+ }
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .left {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .upside,
+    .downside {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .skillouter,
+    .outer1,
+    .box1,
+    .box2,
+    .box12,
+    .box22,
+    .boxD1,
+    .boxD2,
+    .boxD3,
+    .boxD4 {
+        width: 80vw;
+        margin: 10px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    #backToChatBtn {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    #downloadBtn {
+        position: relative;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .skillouter h3 {
+        font-size: 18px;
+    }
+
+    .skillouter p {
+        font-size: 12px;
+    }
+
+    .box1,
+    .box2,
+    .box12,
+    .box22 {
+        font-size: 12px;
+    }
+
+    #downloadBtn,
+    #backToChatBtn {
+        padding: 8px 15px;
+    }
+}
